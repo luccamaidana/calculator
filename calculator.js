@@ -24,16 +24,16 @@ let oper = String */
 const operate = (n1,n2,oper)=>{
     switch (oper) {
         case "+":
-            add(n1,n2)
+            return add(n1,n2)
             break;
         case "-":
-            sub(n1,n2)        
+            return sub(n1,n2)        
             break;
         case "*":
-            mult(n1,n2)        
+            return mult(n1,n2)        
             break;
         case "/":
-            div(n1,n2)            
+            return div(n1,n2)            
             break;    
     }
 }
@@ -63,4 +63,4 @@ console.log(sub(15,10))
 console.log(mult(10,10))
 console.log(div(10,5)) */
 
-console.log(operate(1,1,'+'));
+/* console.log(operate(5,0,'/')); */
