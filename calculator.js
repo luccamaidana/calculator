@@ -14,26 +14,26 @@ const div = (n1,n2)=>{
     if(n2 === 0)
         console.log("ERROR YOU CAN NOT DIVIDE BY 0")
     else
-        return n1 / n2
+        return (n1 / n2).toFixed(4)
 }
 
 /* let n1 = Number
 let n2 = Number
 let oper = String */
 
-const operate = (n1,n2,oper)=>{
+const operate = (num1,num2,oper)=>{
     switch (oper) {
         case "+":
-            return add(n1,n2)
+            return add(num1,num2)
             break;
         case "-":
-            return sub(n1,n2)        
+            return sub(num1,num2)        
             break;
         case "*":
-            return mult(n1,n2)        
+            return mult(num1,num2)        
             break;
         case "/":
-            return div(n1,n2)            
+            return div(num1,num2)            
             break;    
     }
 }
@@ -54,22 +54,21 @@ const calculator = () =>{
                 n2 = ""
                 op = null
             }
+            else if (button.id === 'equals'){
+                display.value = operate(parseInt(n1),parseInt(n2),op)
+            }
             else{
                 display.value += button.value
                 
                 if(n1 != "" && op != null)
-                    n2 += `${parseInt(button.value)}`
+                    n2 += parseInt(button.value)
                 else if(op === null && button.value != "*" && button.value != "/" && button.value != "+" && button.value != "-")
-                    n1 += `${parseInt(button.value)}`
-                else if((button.value == "*" || button.value == "/" ||button.value == "+" ||button.value == "-"))
+                    n1 += parseInt(button.value)
+                else if(button.value == "*" || button.value == "/" || button.value == "+" || button.value == "-")
                     op = button.value
-
-            }
-    
-                
+            }                
         })
     })
-
 }
 
 calculator()
@@ -78,5 +77,7 @@ calculator()
 console.log(sub(15,10))
 console.log(mult(10,10))
 console.log(div(10,5)) */
-
-/* console.log(operate(5,0,'/')); */
+a = 10
+b = 10
+c = "+"
+console.log(operate(a,b,c));
