@@ -38,25 +38,41 @@ const operate = (n1,n2,oper)=>{
     }
 }
 
-const display = document.getElementById('display')
-const buttons = document.querySelectorAll('#buttonBox button')
+const calculator = () =>{
+    const display = document.getElementById('display')
+    const buttons = document.querySelectorAll('#buttonBox button')
+    
+    n1 = ""
+    n2 = ""
+    op = null
 
-buttons.forEach(button =>{
-    button.addEventListener('click', ()=>{
-        if(button.id === 'clear')
-            display.value = ''
-        else if(button.value >= 0 && button.value <= 9)
-            display.value += button.value
-        else{
-            let n1 = button.value
-            let oper = button.value
-            let n2 = button.value
-            /* display.value += button.value */
-        }
+    buttons.forEach(button =>{
+        button.addEventListener('click', ()=>{
+            if(button.id === 'clear'){
+                display.value = ''
+                n1 = ""
+                n2 = ""
+                op = null
+            }
+            else{
+                display.value += button.value
+                
+                if(n1 != "" && op != null)
+                    n2 += `${parseInt(button.value)}`
+                else if(op === null && button.value != "*" && button.value != "/" && button.value != "+" && button.value != "-")
+                    n1 += `${parseInt(button.value)}`
+                else if((button.value == "*" || button.value == "/" ||button.value == "+" ||button.value == "-"))
+                    op = button.value
 
-            
+            }
+    
+                
+        })
     })
-})
+
+}
+
+calculator()
 
 /* console.log(add(5,5))
 console.log(sub(15,10))
