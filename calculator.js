@@ -56,8 +56,14 @@ const calculator = () =>{
             }
             else if (button.id === 'equals'){
                 display.value = operate(parseInt(n1),parseInt(n2),op)
-            }
-            else{
+            } else if (button.id === 'del') {
+                display.value = display.value.slice(0, -1);
+                if (op === null) {
+                    n1 = n1.slice(0, -1);
+                } else {
+                    n2 = n2.slice(0, -1);
+                } }
+            else {
                 display.value += button.value
                 
                 if(n1 != "" && op != null)
