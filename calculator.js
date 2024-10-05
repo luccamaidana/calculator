@@ -11,10 +11,13 @@ const mult = (n1,n2)=>{
 }
 
 const div = (n1,n2)=>{
-    if(n2 === 0)
+    if(n2 === 0) { 
+        //TODO: Fix this
         console.log("ERROR YOU CAN NOT DIVIDE BY 0")
+        display.value = 'Math Error'
+    }
     else
-        return (n1 / n2).toFixed(4)
+        return parseFloat(n1 / n2).toFixed(2)
 }
 
 /* let n1 = Number
@@ -55,7 +58,10 @@ const calculator = () =>{
                 op = null
             }
             else if (button.id === 'equals'){
-                display.value = operate(parseInt(n1),parseInt(n2),op)
+                display.value = operate(parseFloat(n1),parseFloat(n2),op)
+                n1 = parseFloat(display.value)
+                op = null
+                n2 = ""
             } else if (button.id === 'del') {
                 display.value = display.value.slice(0, -1);
                 if (op === null) {
@@ -67,9 +73,9 @@ const calculator = () =>{
                 display.value += button.value
                 
                 if(n1 != "" && op != null)
-                    n2 += parseInt(button.value)
+                    n2 += parseFloat(button.value)
                 else if(op === null && button.value != "*" && button.value != "/" && button.value != "+" && button.value != "-")
-                    n1 += parseInt(button.value)
+                    n1 += parseFloat(button.value)
                 else if(button.value == "*" || button.value == "/" || button.value == "+" || button.value == "-")
                     op = button.value
             }                
