@@ -4,7 +4,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #000;
+    background-color: #302e2e;
     margin: 0;
     font-family: Arial, sans-serif;
 }
@@ -15,14 +15,14 @@ body {
     padding: 20px;
     border-radius: 20px;
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
-    width: 320px;
+    width: 295px;
 }
 
 /* Estilos para la pantalla */
 #display {
     width: 100%;
     height: 60px;
-    background-color: #000;
+    background-color: #0f0f0fa8;
     color: #fff;
     text-align: right;
     font-size: 2rem;
@@ -33,62 +33,68 @@ body {
     box-sizing: border-box;
 }
 
-/* Contenedor de los botones */
 #buttonBox {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    display: flex;
+    width: 100%;
+}
+
+/* Contenedor de los botones numéricos */
+#buttonContainer {
+    display: flex;
+    flex-direction: column;
     gap: 10px;
 }
 
+/* Contenedor de los operadores */
+#operators {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#b0, #del {
+    width: 135px;
+    border-radius: 25px;
+}
+
+
 /* Estilo general para los botones */
 button {
-    background-color: #505050;
+    background-color: #5e5e5e;
     color: #fff;
     border: none;
     border-radius: 50%;
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     height: 60px;
     width: 60px;
+    margin: 5px;
     box-shadow: 0px 5px rgba(0, 0, 0, 0.2);
     transition: background-color 0.3s;
     cursor: pointer;
-}
-
-/* Estilo para botones numéricos y de punto decimal */
-button:not(#clear):not(#equals):not(#del) {
-    background-color: #333;
 }
 
 /* Estilo para los botones de operaciones */
 button[value="/"],
 button[value="*"],
 button[value="+"],
-button[value="-"] {
-    background-color: #ff9500;
-}
-
-/* Estilo para el botón de igual */
+button[value="-"],
 #equals {
     background-color: #ff9500;
-    grid-column: span 2;
 }
+
 
 /* Estilo para el botón de Clear */
-#clear {
+#clear, #del {
     background-color: #a5a5a5;
     color: #000;
 }
 
-/* Estilo para el botón de Del */
-#del {
-    background-color: #a5a5a5;
-    color: #000;
-}
 
 /* Estilo para botones cuando se presionan */
 button:active {
     background-color: #ff8500;
 }
+
 
 /* Responsive: ajustar tamaño para pantallas pequeñas */
 @media (max-width: 400px) {
