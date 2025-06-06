@@ -114,7 +114,6 @@ const calculator = () =>{
 
             exp += button.value
             displays(button.value)
-            console.log(exp);
 
             let {n1,n2,op} = separate(exp)
 
