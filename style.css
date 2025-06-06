@@ -11,6 +11,7 @@ body {
 
 /* Contenedor de la calculadora */
 #calculator {
+    touch-action: manipulation;
     background-color: #333;
     padding: 20px;
     border-radius: 20px;
